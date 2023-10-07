@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body style="background-color: black; color: white;">
+
+    <ul>
+        <li>JAVASCRIPT</li>
+    </ul>
+
+    <script>
+        myUL = document.querySelector("ul");
+
+        function addNewItem(text){
+           const li = document.createElement("li");
+           li.innerText = text;
+           myUL.appendChild(li);
+        }
+
+        addNewItem("PYTHON")
+
+        function optimizedAddNewItem(text){
+           const li = document.createElement("li");
+           const newText = document.createTextNode(text);
+           li.appendChild(newText)
+           myUL.appendChild(li);
+        }
+
+        optimizedAddNewItem("C++")
+
+        function editItem(text){
+            const secLang = document.querySelector("li:nth-child(2)");
+            // secLang.innerText = text;
+            const newLi = document.createElement("li");
+            newLi.appendChild(document.createTextNode(text));
+            secLang.replaceWith(newLi)
+        }
+
+        editItem("RUST")
+
+        // ------------------------------
+        const firstLang = document.querySelector("li:first-child");
+        firstLang.outerHTML = "<li>TYPESCRIPT</li>"
+
+        //  REMOVE element
+        const lastLang = document.querySelector("li:last-child");
+        lastLang.remove();
+
+    </script>
+</body>
+</html>
